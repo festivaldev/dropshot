@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Service="AuthenticationWebService.AuthenticationWebService" CodeBehind="AuthenticationWebService.cs" %>

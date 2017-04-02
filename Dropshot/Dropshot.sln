@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationWebService", "ClassLibrary1\AuthenticationWebService.csproj", "{F0173C80-5F68-4A38-8A40-2673DDF452E3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationWebService", "ApplicationWebService\ApplicationWebService.csproj", "{14CD7C4C-931E-4D14-B925-CCF0087744ED}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelationshipWebService", "RelationshipWebService\RelationshipWebService.csproj", "{E071134D-80DC-43DE-9123-A543784CA285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthenticationWebService", "AuthenticationWebService\AuthenticationWebService.csproj", "{F1E5119F-277D-4104-95FB-D294350C64B1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{298EE980-9D4F-45C6-BA91-5EC65C462AEB}"
+	ProjectSection(SolutionItems) = preProject
+		Web.config = Web.config
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +20,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F0173C80-5F68-4A38-8A40-2673DDF452E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F0173C80-5F68-4A38-8A40-2673DDF452E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F0173C80-5F68-4A38-8A40-2673DDF452E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F0173C80-5F68-4A38-8A40-2673DDF452E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{14CD7C4C-931E-4D14-B925-CCF0087744ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{14CD7C4C-931E-4D14-B925-CCF0087744ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14CD7C4C-931E-4D14-B925-CCF0087744ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +28,10 @@ Global
 		{E071134D-80DC-43DE-9123-A543784CA285}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E071134D-80DC-43DE-9123-A543784CA285}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E071134D-80DC-43DE-9123-A543784CA285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1E5119F-277D-4104-95FB-D294350C64B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1E5119F-277D-4104-95FB-D294350C64B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1E5119F-277D-4104-95FB-D294350C64B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1E5119F-277D-4104-95FB-D294350C64B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
