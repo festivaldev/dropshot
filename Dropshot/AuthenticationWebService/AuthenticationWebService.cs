@@ -11,7 +11,7 @@ namespace AuthenticationWebService {
 	public class AuthenticationWebService : IAuthenticationWebServiceContract {
 		public byte[] LoginSteam(byte[] data) {
 			MemoryStream outputStream = new MemoryStream();
-			/*MemberAuthenticationResultView instance = new MemberAuthenticationResultView() {
+			MemberAuthenticationResultView instance = new MemberAuthenticationResultView() {
 				MemberAuthenticationResult = MemberAuthenticationResult.Ok,
 				MemberView = new MemberView() {
 					PublicProfile = new PublicProfileView() {
@@ -66,15 +66,15 @@ namespace AuthenticationWebService {
 				ServerTime = DateTime.Now,
 				IsAccountComplete = true,
 				AuthToken = "WW91aGF2ZWJlZW5hdXRob3JpemVkdG9wbGF5dGhpc2dhbWU="
-			};*/
-			MemberAuthenticationResultView instance = new MemberAuthenticationResultView() {
+			};
+			/*MemberAuthenticationResultView instance = new MemberAuthenticationResultView() {
 				AuthToken = "WW91aGF2ZWJlZW5hdXRob3JpemVkdG9wbGF5dGhpc2dhbWU=",
 				IsAccountComplete = true,
 				MemberAuthenticationResult = MemberAuthenticationResult.Ok,
 				ServerTime = new DateTime(),
 				MemberView = new MemberView(),
 				PlayerStatisticsView = new PlayerStatisticsView()
-			};
+			};*/
 
 			MemberAuthenticationResultViewProxy.Serialize(outputStream, instance);
 

@@ -56,4 +56,82 @@ namespace UberStrike.Core.Entities {
 		TeamDeathMatch,
 		EliminationMode
 	}
+
+	public enum UberstrikeItemClass {
+		WeaponMelee = 1,
+		WeaponMachinegun = 3,
+		WeaponShotgun,
+		WeaponSniperRifle,
+		WeaponCannon,
+		WeaponSplattergun,
+		WeaponLauncher,
+		WeaponModScope,
+		WeaponModMuzzle,
+		WeaponModWeaponMod,
+		GearBoots,
+		GearHead,
+		GearFace,
+		GearUpperBody,
+		GearLowerBody,
+		GearGloves,
+		QuickUseGeneral,
+		QuickUseGrenade,
+		QuickUseMine,
+		FunctionalGeneral,
+		SpecialGeneral,
+		GearHolo
+	}
+
+	public enum UberstrikeItemType {
+		Weapon = 1,
+		WeaponMod,
+		Gear,
+		QuickUse,
+		Functional,
+		Special
+	}
+
+	public enum UberStrikeCurrencyType {
+		None,
+		Credits,
+		Points
+	}
+
+	public enum PackType {
+		One,
+		Two,
+		Three
+	}
+
+	public enum BuyingDurationType {
+		None,
+		OneDay,
+		SevenDays,
+		ThirtyDays,
+		NinetyDays,
+		Permanent
+	}
+
+	public enum ItemShopHighlightType {
+		None,
+		Featured,
+		Popular,
+		New
+	}
+
+	public enum ItemPropertyType {
+		XpBoost = 1,
+		PointsBoost,
+		IsGiftable,
+		CritDamageBonus
+	}
+
+	public enum QuickItemLogic {
+		None,
+		SpringGrenade,
+		HealthPack,
+		ArmorPack,
+		AmmoPack,
+		ExplosiveGrenade
+	}
 }

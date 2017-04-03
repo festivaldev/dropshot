@@ -38,16 +38,16 @@ namespace ApplicationWebService {
 			ApplicationConfigurationView instance = new ApplicationConfigurationView() {
 				MaxLevel = 10,
 				XpRequiredPerLevel = new Dictionary<int, int>() {
-					{1, 10 },
-					{2, 10 },
-					{3, 10 },
-					{4, 10 },
-					{5, 10 },
-					{6, 10 },
-					{7, 10 },
-					{8, 10 },
-					{9, 10 },
-					{10, 10 }
+					{1, 1000 },
+					{2, 2000 },
+					{3, 3000 },
+					{4, 4000 },
+					{5, 5000 },
+					{6, 6000 },
+					{7, 7000 },
+					{8, 8000 },
+					{9, 9000 },
+					{10, 10000 }
 
 				}
 			};
