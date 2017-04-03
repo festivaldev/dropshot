@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationConfigurationViewProxy.cs" />
+    <Compile Include="AuthenticateApplicationViewProxy.cs" />
     <Compile Include="BooleanProxy.cs" />
     <Compile Include="DateTimeProxy.cs" />
     <Compile Include="DictionaryProxy.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="MemberAuthenticationResultViewProxy.cs" />
     <Compile Include="MemberViewProxy.cs" />
     <Compile Include="MemberWalletViewProxy.cs" />
+    <Compile Include="PhotonViewProxy.cs" />
     <Compile Include="PlayerPersonalRecordStatisticsViewProxy.cs" />
     <Compile Include="PlayerStatisticsViewProxy.cs" />
     <Compile Include="PlayerWeaponStatisticsViewProxy.cs" />

@@ -33,4 +33,20 @@ namespace UberStrike.Core.Entities {
 		Verified,
 		Invalid
 	}
+
+	public enum RegionType {
+		UsEast,
+		EuWest,
+		AsiaPacific,
+		UsWest,
+		SouthKorea,
+		Japan
+	}
+
+	public enum PhotonUsageType {
+		None,
+		All,
+		Mobile,
+		CommServer = 6
+	}
 }

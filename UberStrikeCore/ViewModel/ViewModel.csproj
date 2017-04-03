@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationConfigurationView.cs" />
+    <Compile Include="AuthenticationApplicationView.cs" />
     <Compile Include="MemberAuthenticationResultView.cs" />
+    <Compile Include="PhotonView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
