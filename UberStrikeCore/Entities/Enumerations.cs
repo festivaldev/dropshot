@@ -49,4 +49,11 @@ namespace UberStrike.Core.Entities {
 		Mobile,
 		CommServer = 6
 	}
+
+	public enum GameModeType {
+		None,
+		DeathMatch,
+		TeamDeathMatch,
+		EliminationMode
+	}
 }

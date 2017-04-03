@@ -8,5 +8,8 @@ namespace ApplicationWebService {
 
 		[OperationContract]
 		byte[] GetConfigurationData(byte[] data);
+
+		[OperationContract]
+		byte[] GetMaps(byte[] data);
 	}
 }

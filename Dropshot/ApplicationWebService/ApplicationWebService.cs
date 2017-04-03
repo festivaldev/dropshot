@@ -55,5 +55,29 @@ namespace ApplicationWebService {
 
 			return outputStream.ToArray();
 		}
+
+		public byte[] GetMaps(byte[] data) {
+			MemoryStream outputStream = new MemoryStream();
+
+			List<MapView> instance = new List<MapView>() {
+				new MapView() {
+					MapId = 0,
+					DisplayName = "The Warehouse",
+					Description = "Example Description",
+					SceneName = "TheWarehouse",
+					IsBlueBox = false,
+					RecommendedItemId = -1,
+					SupportedGameModes = 1,
+					SupportedItemClass = 1,
+					MaxPlayers = 32,
+					Settings = new Dictionary<GameModeType, MapSettings>() {
+						{GameModeType.TeamDeathMatch, new MapSettings() }
+					}
+				}
+			};
+			ListProxy<MapView>.Serialize(outputStream, instance, new ListProxy<MapView>.Serializer<MapView>(MapViewProxy.Serialize));
+
+			return outputStream.ToArray();
+		}
 	}
 }

@@ -55,6 +55,8 @@
     <Compile Include="Int32Proxy.cs" />
     <Compile Include="Int64Proxy.cs" />
     <Compile Include="ListProxy.cs" />
+    <Compile Include="MapSettingsProxy.cs" />
+    <Compile Include="MapViewProxy.cs" />
     <Compile Include="MemberAuthenticationResultViewProxy.cs" />
     <Compile Include="MemberViewProxy.cs" />
     <Compile Include="MemberWalletViewProxy.cs" />
