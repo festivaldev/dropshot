@@ -14,16 +14,16 @@ namespace UberStrike.Core.Serialization {
 				}
 				BooleanProxy.Serialize(memoryStream, instance.IsAccountComplete);
 				EnumProxy<MemberAuthenticationResult>.Serialize(memoryStream, instance.MemberAuthenticationResult);
-				if (instance.MemberView != null) {
+				/*if (instance.MemberView != null) {
 					MemberViewProxy.Serialize(memoryStream, instance.MemberView);
 				} else {
 					num |= 4;
-				}
-				if (instance.PlayerStatisticsView != null) {
+				}*/
+				/*if (instance.PlayerStatisticsView != null) {
 					PlayerStatisticsViewProxy.Serialize(memoryStream, instance.PlayerStatisticsView);
 				} else {
 					num |= 8;
-				}
+				}*/
 				DateTimeProxy.Serialize(memoryStream, instance.ServerTime);
 				Int32Proxy.Serialize(stream, ~num);
 				memoryStream.WriteTo(stream);

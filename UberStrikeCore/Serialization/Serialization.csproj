@@ -46,8 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationConfigurationViewProxy.cs" />
     <Compile Include="BooleanProxy.cs" />
     <Compile Include="DateTimeProxy.cs" />
+    <Compile Include="DictionaryProxy.cs" />
     <Compile Include="EnumProxy.cs" />
     <Compile Include="Int32Proxy.cs" />
     <Compile Include="Int64Proxy.cs" />

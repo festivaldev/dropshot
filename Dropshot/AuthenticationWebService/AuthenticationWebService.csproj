@@ -45,7 +45,8 @@
     <Reference Include="UberStrike.Core.Serialization">
       <HintPath>..\..\UberStrikeCore\Serialization\bin\Debug\UberStrike.Core.Serialization.dll</HintPath>
     </Reference>
-    <Reference Include="UberStrike.Core.ViewModel">
+    <Reference Include="UberStrike.Core.ViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\UberStrikeCore\ViewModel\bin\Debug\UberStrike.Core.ViewModel.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -53,6 +54,9 @@
     <Compile Include="AuthenticationWebService.cs" />
     <Compile Include="IAuthenticationWebServiceContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UberStrike.DataCenter.WebService.CWS.AuthenticationWebServiceContract.svc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

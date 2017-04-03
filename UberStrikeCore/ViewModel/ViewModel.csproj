@@ -43,6 +43,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationConfigurationView.cs" />
     <Compile Include="MemberAuthenticationResultView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
