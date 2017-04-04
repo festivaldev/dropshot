@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{31003919-5017-4E20-A990-C0BA66461ADA}</ProjectGuid>
+    <ProjectGuid>{30BEE739-B477-4612-90FD-FF3EC0FF720C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UberStrike.Core.Serialization</RootNamespace>
-    <AssemblyName>UberStrike.Core.Serialization</AssemblyName>
+    <RootNamespace>UserWebService</RootNamespace>
+    <AssemblyName>UserWebService</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,50 +30,30 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>K:\Steam\steamapps\common\UberStrike\UberStrike_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UberStrike.Core.Entities">
-      <HintPath>..\Entities\bin\Debug\UberStrike.Core.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="UberStrike.Core.ViewModel">
-      <HintPath>..\ViewModel\bin\Debug\UberStrike.Core.ViewModel.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationConfigurationViewProxy.cs" />
-    <Compile Include="AuthenticateApplicationViewProxy.cs" />
-    <Compile Include="BooleanProxy.cs" />
-    <Compile Include="DateTimeProxy.cs" />
-    <Compile Include="DictionaryProxy.cs" />
-    <Compile Include="EnumProxy.cs" />
-    <Compile Include="Int32Proxy.cs" />
-    <Compile Include="Int64Proxy.cs" />
-    <Compile Include="ItemPriceProxy.cs" />
-    <Compile Include="ListProxy.cs" />
-    <Compile Include="MapSettingsProxy.cs" />
-    <Compile Include="MapViewProxy.cs" />
-    <Compile Include="MemberAuthenticationResultViewProxy.cs" />
-    <Compile Include="MemberViewProxy.cs" />
-    <Compile Include="MemberWalletViewProxy.cs" />
-    <Compile Include="PhotonViewProxy.cs" />
-    <Compile Include="PlayerPersonalRecordStatisticsViewProxy.cs" />
-    <Compile Include="PlayerStatisticsViewProxy.cs" />
-    <Compile Include="PlayerWeaponStatisticsViewProxy.cs" />
+    <Compile Include="IUserWebServiceContract.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PublicProfileViewProxy.cs" />
-    <Compile Include="StringProxy.cs" />
-    <Compile Include="UberStrikeItemFunctionalViewProxy.cs" />
-    <Compile Include="UberStrikeItemGearViewProxy.cs" />
-    <Compile Include="UberStrikeItemQuickViewProxy.cs" />
-    <Compile Include="UberStrikeItemShopClientViewProxy.cs" />
-    <Compile Include="UberStrikeItemWeaponViewProxy.cs" />
-    <Compile Include="UShortProxy.cs" />
+    <Compile Include="UserWebService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UberStrike.DataCenter.WebService.CWS.UserWebServiceContract.svc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "C:\inetpub\wwwroot\bin" /Y
+xcopy "$(ProjectDir)*.svc" "C:\inetpub\wwwroot\2.0" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

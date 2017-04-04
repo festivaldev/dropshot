@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F1E5119F-277D-4104-95FB-D294350C64B1}</ProjectGuid>
+    <ProjectGuid>{2343DDA8-C489-4D97-9F34-269463129525}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AuthenticationWebService</RootNamespace>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>K:\Steam\steamapps\common\UberStrike\UberStrike_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -39,16 +42,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UberStrike.Core.Entities">
-      <HintPath>..\..\UberStrikeCore\Entities\bin\Debug\UberStrike.Core.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="UberStrike.Core.Serialization">
-      <HintPath>..\..\UberStrikeCore\Serialization\bin\Debug\UberStrike.Core.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="UberStrike.Core.ViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\UberStrikeCore\ViewModel\bin\Debug\UberStrike.Core.ViewModel.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AuthenticationWebService.cs" />
@@ -59,4 +52,8 @@
     <Content Include="UberStrike.DataCenter.WebService.CWS.AuthenticationWebServiceContract.svc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "C:\inetpub\wwwroot\bin" /Y
+xcopy "$(ProjectDir)*.svc" "C:\inetpub\wwwroot\2.0" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

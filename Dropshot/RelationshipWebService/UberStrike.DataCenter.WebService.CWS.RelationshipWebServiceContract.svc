@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Service="RelationshipWebService.RelationshipWebService" CodeBehind="RelationshipWebService.cs" %>

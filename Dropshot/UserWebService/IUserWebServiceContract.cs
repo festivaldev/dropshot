@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ServiceModel;
 
-namespace ApplicationWebService {
+namespace UserWebService {
 	[ServiceContract]
-	public interface IApplicationWebServiceContract {
+	public interface IUserWebServiceContract {
 		[OperationContract]
-		byte[] AuthenticateApplication(byte[] data);
+		byte[] GetInventory(byte[] data);
 
 		[OperationContract]
-		byte[] GetConfigurationData(byte[] data);
+		byte[] GetLoadout(byte[] data);
 
 		[OperationContract]
-		byte[] GetMaps(byte[] data);
+		byte[] GetMember(byte[] data);
 	}
 }

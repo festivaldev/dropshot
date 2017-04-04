@@ -1,17 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ServiceModel;
 using System.IO;
-using System.Collections.Generic;
-using UberStrike.Core.ViewModel;
+using UberStrike.DataCenter.Common.Entities;
 using UberStrike.Core.Serialization;
-using UberStrike.Core.Entities;
+using UberStrike.Core.Models.Views;
+using UberStrike.Core.Types;
+using Cmune.Core.Models.Views;
+using Cmune.DataCenter.Common.Entities;
 
 namespace ApplicationWebService {
 	[ServiceBehavior]
-	public class ApplicationWebService : IApplicationWebServiceContract {
+	class ApplicationWebService : IApplicationWebServiceContract {
 		public byte[] AuthenticateApplication(byte[] data) {
 			MemoryStream outputStream = new MemoryStream();
-
 			AuthenticateApplicationView instance = new AuthenticateApplicationView() {
 				CommServer = new PhotonView() {
 					IP = "127.0.0.1",
@@ -32,6 +37,7 @@ namespace ApplicationWebService {
 
 			return outputStream.ToArray();
 		}
+
 		public byte[] GetConfigurationData(byte[] data) {
 			MemoryStream outputStream = new MemoryStream();
 
@@ -51,6 +57,7 @@ namespace ApplicationWebService {
 
 				}
 			};
+
 			ApplicationConfigurationViewProxy.Serialize(outputStream, instance);
 
 			return outputStream.ToArray();

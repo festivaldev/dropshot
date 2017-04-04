@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6F2F1676-2EC8-4138-9255-989D86C47012}</ProjectGuid>
+    <ProjectGuid>{FB6C22E8-7228-4BEE-8A36-00F62FF948D5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShopWebService</RootNamespace>
@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>K:\Steam\steamapps\common\UberStrike\UberStrike_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -39,15 +42,6 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="UberStrike.Core.Entities">
-      <HintPath>..\..\UberStrikeCore\Entities\bin\Debug\UberStrike.Core.Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="UberStrike.Core.Serialization">
-      <HintPath>..\..\UberStrikeCore\Serialization\bin\Debug\UberStrike.Core.Serialization.dll</HintPath>
-    </Reference>
-    <Reference Include="UberStrike.Core.ViewModel">
-      <HintPath>..\..\UberStrikeCore\ViewModel\bin\Debug\UberStrike.Core.ViewModel.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IShopWebServiceContract.cs" />
@@ -58,4 +52,8 @@
     <Content Include="UberStrike.DataCenter.WebService.CWS.ShopWebServiceContract.svc" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)*.dll" "C:\inetpub\wwwroot\bin" /Y
+xcopy "$(ProjectDir)*.svc" "C:\inetpub\wwwroot\2.0" /Y</PostBuildEvent>
+  </PropertyGroup>
 </Project>

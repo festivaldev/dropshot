@@ -1,22 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.ServiceModel;
+using System.IO;
 using UberStrike.Core.ViewModel;
-using UberStrike.Core.Entities;
 using UberStrike.Core.Serialization;
+using UberStrike.DataCenter.Common.Entities;
+using Cmune.DataCenter.Common.Entities;
 
 namespace AuthenticationWebService {
-	[ServiceBehavior]
 	public class AuthenticationWebService : IAuthenticationWebServiceContract {
 		public byte[] LoginSteam(byte[] data) {
 			MemoryStream outputStream = new MemoryStream();
+
 			MemberAuthenticationResultView instance = new MemberAuthenticationResultView() {
 				MemberAuthenticationResult = MemberAuthenticationResult.Ok,
 				MemberView = new MemberView() {
 					PublicProfile = new PublicProfileView() {
 						Cmid = 234789,
-						Name = "UberStrike Demo User",
+						Name = "Demo User",
 						IsChatDisabled = false,
 						AccessLevel = MemberAccessLevel.Admin,
 						GroupTag = "DEMO",
@@ -31,7 +35,35 @@ namespace AuthenticationWebService {
 						CreditsExpiration = DateTime.Today,
 						PointsExpiration = DateTime.Today
 					},
-					MemberItems = new List<int>()
+					MemberItems = new List<int>() {
+						3342386,
+						6684769,
+						6357046,
+						3407969,
+						3145825,
+						3539045,
+						3145782,
+						3735653,
+						6684773,
+						3276898,
+						3211320,
+						6553655,
+						6684728,
+						3407969,
+						6357090,
+						3473460,
+						3407922,
+						3276900,
+						6488113,
+						3407974,
+						3735649,
+						6422583,
+						3539000,
+						3145825,
+						3604530,
+						6684724,
+						6357048
+					}
 				},
 				PlayerStatisticsView = new PlayerStatisticsView() {
 					Cmid = 234789,
@@ -67,15 +99,6 @@ namespace AuthenticationWebService {
 				IsAccountComplete = true,
 				AuthToken = "WW91aGF2ZWJlZW5hdXRob3JpemVkdG9wbGF5dGhpc2dhbWU="
 			};
-			/*MemberAuthenticationResultView instance = new MemberAuthenticationResultView() {
-				AuthToken = "WW91aGF2ZWJlZW5hdXRob3JpemVkdG9wbGF5dGhpc2dhbWU=",
-				IsAccountComplete = true,
-				MemberAuthenticationResult = MemberAuthenticationResult.Ok,
-				ServerTime = new DateTime(),
-				MemberView = new MemberView(),
-				PlayerStatisticsView = new PlayerStatisticsView()
-			};*/
-
 			MemberAuthenticationResultViewProxy.Serialize(outputStream, instance);
 
 			return outputStream.ToArray();
