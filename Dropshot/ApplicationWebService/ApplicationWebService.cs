@@ -80,7 +80,77 @@ namespace ApplicationWebService {
 					Settings = new Dictionary<GameModeType, MapSettings>() {
 						{GameModeType.TeamDeathMatch, new MapSettings() }
 					}
-				}
+				},
+				new MapView() {
+					MapId = 1,
+					DisplayName = "Gideons Tower",
+					Description = "Example Description",
+					SceneName = "GideonsTower",
+					IsBlueBox = false,
+					RecommendedItemId = -1,
+					SupportedGameModes = 1,
+					SupportedItemClass = 1,
+					MaxPlayers = 32,
+					Settings = new Dictionary<GameModeType, MapSettings>() {
+						{GameModeType.TeamDeathMatch, new MapSettings() }
+					}
+				},
+				new MapView() {
+					MapId = 1,
+					DisplayName = "Temple of the Raven",
+					Description = "Example Description",
+					SceneName = "TempleOfTheRaven",
+					IsBlueBox = false,
+					RecommendedItemId = -1,
+					SupportedGameModes = 1,
+					SupportedItemClass = 1,
+					MaxPlayers = 32,
+					Settings = new Dictionary<GameModeType, MapSettings>() {
+						{GameModeType.TeamDeathMatch, new MapSettings() }
+					}
+				},
+				new MapView() {
+					MapId = 1,
+					DisplayName = "CuberStrike",
+					Description = "Example Description",
+					SceneName = "CuberStrike",
+					IsBlueBox = false,
+					RecommendedItemId = -1,
+					SupportedGameModes = 1,
+					SupportedItemClass = 1,
+					MaxPlayers = 32,
+					Settings = new Dictionary<GameModeType, MapSettings>() {
+						{GameModeType.TeamDeathMatch, new MapSettings() }
+					}
+				},
+				new MapView() {
+					MapId = 1,
+					DisplayName = "Fort Winter",
+					Description = "Example Description",
+					SceneName = "FortWinter",
+					IsBlueBox = false,
+					RecommendedItemId = -1,
+					SupportedGameModes = 1,
+					SupportedItemClass = 1,
+					MaxPlayers = 32,
+					Settings = new Dictionary<GameModeType, MapSettings>() {
+						{GameModeType.TeamDeathMatch, new MapSettings() }
+					}
+				},
+				new MapView() {
+					MapId = 1,
+					DisplayName = "CuberSpace",
+					Description = "Example Description",
+					SceneName = "CuberSpace",
+					IsBlueBox = false,
+					RecommendedItemId = -1,
+					SupportedGameModes = 1,
+					SupportedItemClass = 1,
+					MaxPlayers = 32,
+					Settings = new Dictionary<GameModeType, MapSettings>() {
+						{GameModeType.TeamDeathMatch, new MapSettings() }
+					}
+				},
 			};
 			ListProxy<MapView>.Serialize(outputStream, instance, new ListProxy<MapView>.Serializer<MapView>(MapViewProxy.Serialize));
 

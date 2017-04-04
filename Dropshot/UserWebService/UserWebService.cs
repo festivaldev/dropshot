@@ -17,6 +17,16 @@ namespace UserWebService {
 		public byte[] GetInventory(byte[] data) {
 			MemoryStream outputStream = new MemoryStream();
 
+			List<ItemInventoryView> instance = new List<ItemInventoryView>() {
+				new ItemInventoryView() {
+					Cmid = 234789,
+					ItemId = 6357090,
+					AmountRemaining = -1
+				}
+			};
+
+			ListProxy<ItemInventoryView>.Serialize(outputStream, instance, new ListProxy<ItemInventoryView>.Serializer<ItemInventoryView>(ItemInventoryViewProxy.Serialize));
+
 			return outputStream.ToArray();
 		}
 
@@ -24,6 +34,8 @@ namespace UserWebService {
 			MemoryStream outputStream = new MemoryStream();
 
 			LoadoutView instance = new LoadoutView() {
+				Weapon1 = 6357090
+			}/* {
 				Backpack = 3342386,
 				Boots = 6684769,
 				Cmid = 234789,
@@ -54,7 +66,7 @@ namespace UserWebService {
 				Weapon3Mod2 = 25,
 				Weapon3Mod3 = 26,
 				Webbing = 27,
-			};
+			}*/;
 
 			LoadoutViewProxy.Serialize(outputStream, instance);
 
@@ -70,7 +82,7 @@ namespace UserWebService {
 						Cmid = 234789,
 						Name = "Demo User",
 						IsChatDisabled = false,
-						AccessLevel = MemberAccessLevel.Admin,
+						AccessLevel = MemberAccessLevel.SeniorQA,
 						GroupTag = "DEMO",
 						LastLoginDate = new DateTime(),
 						EmailAddressStatus = EmailAddressStatus.Verified,

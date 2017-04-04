@@ -36,6 +36,7 @@ namespace AuthenticationWebService {
 						PointsExpiration = DateTime.Today
 					},
 					MemberItems = new List<int>() {
+						15,
 						3342386,
 						6684769,
 						6357046,
@@ -72,7 +73,7 @@ namespace AuthenticationWebService {
 					Shots = 500,
 					Hits = 500,
 					Nutshots = 100,
-					Xp = 1000,
+					Xp = 1500,
 					Level = 3,
 					TimeSpentInGame = 100,
 					PersonalRecord = new PlayerPersonalRecordStatisticsView() {
