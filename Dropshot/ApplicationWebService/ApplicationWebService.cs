@@ -11,6 +11,7 @@ using UberStrike.Core.Models.Views;
 using UberStrike.Core.Types;
 using Cmune.Core.Models.Views;
 using Cmune.DataCenter.Common.Entities;
+using Newtonsoft.Json;
 
 namespace ApplicationWebService {
 	[ServiceBehavior]
@@ -23,13 +24,23 @@ namespace ApplicationWebService {
 					MinLatency = 1000,
 					Name = "EU West",
 					PhotonId = 743958298,
-					Port = 80,
+					Port = 5055,
 					Region = RegionType.EuWest,
 					UsageType = PhotonUsageType.CommServer
 				},
 				EncryptionInitVector = "032847tw8ehufiiuhaer",
 				EncryptionPassPhrase = "gldjjofsdsdj2i0ß9",
-				GameServers = new List<PhotonView>(),
+				GameServers = new List<PhotonView>() {
+					new PhotonView() {
+						PhotonId = 5982379,
+						IP = "127.0.0.1",
+						Name = "UberStrike Test Server",
+						Region = RegionType.EuWest,
+						Port = 5056,
+						UsageType = PhotonUsageType.All,
+						MinLatency = 1000
+					}
+				},
 				IsEnabled = true,
 				WarnPlayer = false
 			};
@@ -66,92 +77,8 @@ namespace ApplicationWebService {
 		public byte[] GetMaps(byte[] data) {
 			MemoryStream outputStream = new MemoryStream();
 
-			List<MapView> instance = new List<MapView>() {
-				new MapView() {
-					MapId = 0,
-					DisplayName = "The Warehouse",
-					Description = "Example Description",
-					SceneName = "TheWarehouse",
-					IsBlueBox = false,
-					RecommendedItemId = -1,
-					SupportedGameModes = 1,
-					SupportedItemClass = 1,
-					MaxPlayers = 32,
-					Settings = new Dictionary<GameModeType, MapSettings>() {
-						{GameModeType.TeamDeathMatch, new MapSettings() }
-					}
-				},
-				new MapView() {
-					MapId = 1,
-					DisplayName = "Gideons Tower",
-					Description = "Example Description",
-					SceneName = "GideonsTower",
-					IsBlueBox = false,
-					RecommendedItemId = -1,
-					SupportedGameModes = 1,
-					SupportedItemClass = 1,
-					MaxPlayers = 32,
-					Settings = new Dictionary<GameModeType, MapSettings>() {
-						{GameModeType.TeamDeathMatch, new MapSettings() }
-					}
-				},
-				new MapView() {
-					MapId = 1,
-					DisplayName = "Temple of the Raven",
-					Description = "Example Description",
-					SceneName = "TempleOfTheRaven",
-					IsBlueBox = false,
-					RecommendedItemId = -1,
-					SupportedGameModes = 1,
-					SupportedItemClass = 1,
-					MaxPlayers = 32,
-					Settings = new Dictionary<GameModeType, MapSettings>() {
-						{GameModeType.TeamDeathMatch, new MapSettings() }
-					}
-				},
-				new MapView() {
-					MapId = 1,
-					DisplayName = "CuberStrike",
-					Description = "Example Description",
-					SceneName = "CuberStrike",
-					IsBlueBox = false,
-					RecommendedItemId = -1,
-					SupportedGameModes = 1,
-					SupportedItemClass = 1,
-					MaxPlayers = 32,
-					Settings = new Dictionary<GameModeType, MapSettings>() {
-						{GameModeType.TeamDeathMatch, new MapSettings() }
-					}
-				},
-				new MapView() {
-					MapId = 1,
-					DisplayName = "Fort Winter",
-					Description = "Example Description",
-					SceneName = "FortWinter",
-					IsBlueBox = false,
-					RecommendedItemId = -1,
-					SupportedGameModes = 1,
-					SupportedItemClass = 1,
-					MaxPlayers = 32,
-					Settings = new Dictionary<GameModeType, MapSettings>() {
-						{GameModeType.TeamDeathMatch, new MapSettings() }
-					}
-				},
-				new MapView() {
-					MapId = 1,
-					DisplayName = "CuberSpace",
-					Description = "Example Description",
-					SceneName = "CuberSpace",
-					IsBlueBox = false,
-					RecommendedItemId = -1,
-					SupportedGameModes = 1,
-					SupportedItemClass = 1,
-					MaxPlayers = 32,
-					Settings = new Dictionary<GameModeType, MapSettings>() {
-						{GameModeType.TeamDeathMatch, new MapSettings() }
-					}
-				},
-			};
+			string json = File.ReadAllText(Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"data\maps.json"));
+			List<MapView> instance = JsonConvert.DeserializeObject<List<MapView>>(json);
 			ListProxy<MapView>.Serialize(outputStream, instance, new ListProxy<MapView>.Serializer<MapView>(MapViewProxy.Serialize));
 
 			return outputStream.ToArray();

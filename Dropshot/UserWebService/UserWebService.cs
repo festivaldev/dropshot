@@ -10,127 +10,84 @@ using UberStrike.DataCenter.Common.Entities;
 using UberStrike.Core.Types;
 using UberStrike.Core.ViewModel;
 using Cmune.DataCenter.Common.Entities;
+using Newtonsoft.Json;
 
 namespace UserWebService {
 	[ServiceBehavior]
 	public class UserWebService : IUserWebServiceContract {
 		public byte[] GetInventory(byte[] data) {
+			MemoryStream inputStream = new MemoryStream(data);
+			string steamId = Encoding.UTF8.GetString(Convert.FromBase64String(StringProxy.Deserialize(inputStream)));
+			string json = File.ReadAllText(Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"data\inventory.json"));
+
+			Dictionary<String, List<ItemInventoryView>> userData = JsonConvert.DeserializeObject<Dictionary<String, List<ItemInventoryView>>>(json);
+
+			List<ItemInventoryView> instance = null;
+			if (userData.ContainsKey(steamId) && userData[steamId] != null) {
+				instance = userData[steamId];
+			} else {
+				instance = new List<ItemInventoryView>() {
+					new ItemInventoryView() {
+						Cmid = 234789,
+						ItemId = 1,
+						AmountRemaining = -1
+					},
+					new ItemInventoryView() {
+						Cmid = 234789,
+						ItemId = 12,
+						AmountRemaining = -1
+					}
+				};
+			}
+
 			MemoryStream outputStream = new MemoryStream();
-
-			List<ItemInventoryView> instance = new List<ItemInventoryView>() {
-				new ItemInventoryView() {
-					Cmid = 234789,
-					ItemId = 6357090,
-					AmountRemaining = -1
-				}
-			};
-
 			ListProxy<ItemInventoryView>.Serialize(outputStream, instance, new ListProxy<ItemInventoryView>.Serializer<ItemInventoryView>(ItemInventoryViewProxy.Serialize));
 
 			return outputStream.ToArray();
 		}
 
 		public byte[] GetLoadout(byte[] data) {
+			MemoryStream inputStream = new MemoryStream(data);
+			string steamId = Encoding.UTF8.GetString(Convert.FromBase64String(StringProxy.Deserialize(inputStream)));
+			string json = File.ReadAllText(Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"data\loadout.json"));
+
+			Dictionary<String, LoadoutView> userData = JsonConvert.DeserializeObject<Dictionary<String, LoadoutView>>(json);
+
+			LoadoutView instance = null;
+			if (userData.ContainsKey(steamId) && userData[steamId] != null) {
+				instance = userData[steamId];
+			} else {
+				instance = new LoadoutView() {
+					MeleeWeapon = 1,
+					Weapon1 = 12,
+					QuickItem1 = 2001
+				};
+			}
+
 			MemoryStream outputStream = new MemoryStream();
-
-			LoadoutView instance = new LoadoutView() {
-				Weapon1 = 6357090
-			}/* {
-				Backpack = 3342386,
-				Boots = 6684769,
-				Cmid = 234789,
-				Face = 6357046,
-				FunctionalItem1 = 3407969,
-				FunctionalItem2 = 3145825,
-				FunctionalItem3 = 3539045,
-				Gloves = 3145782,
-				Head = 3735653,
-				LoadoutId = 3735607,
-				LowerBody = 9,
-				MeleeWeapon = 10,
-				QuickItem1 = 11,
-				QuickItem2 = 12,
-				QuickItem3 = 12,
-				Type = AvatarType.LolaAvatar,
-				UpperBody = 14,
-				Weapon1 = 15,
-				Weapon1Mod1 = 16,
-				Weapon1Mod2 = 17,
-				Weapon1Mod3 = 18,
-				Weapon2 = 19,
-				Weapon2Mod1 = 20,
-				Weapon2Mod2 = 21,
-				Weapon2Mod3 = 22,
-				Weapon3 = 23,
-				Weapon3Mod1 = 24,
-				Weapon3Mod2 = 25,
-				Weapon3Mod3 = 26,
-				Webbing = 27,
-			}*/;
-
 			LoadoutViewProxy.Serialize(outputStream, instance);
 
 			return outputStream.ToArray();
 		}
 
 		public byte[] GetMember(byte[] data) {
+			MemoryStream inputStream = new MemoryStream(data);
+			string steamId = Encoding.UTF8.GetString(Convert.FromBase64String(StringProxy.Deserialize(inputStream)));
+
+			string json = File.ReadAllText(Path.Combine(System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath, @"data\playerdata.json"));
+			Dictionary<String, MemberView> userData = JsonConvert.DeserializeObject<Dictionary<String, MemberView>>(json);
+
 			MemoryStream outputStream = new MemoryStream();
 
-			UberstrikeUserViewModel instance = new UberstrikeUserViewModel() {
-				CmuneMemberView = new MemberView() {
-					PublicProfile = new PublicProfileView() {
-						Cmid = 234789,
-						Name = "Demo User",
-						IsChatDisabled = false,
-						AccessLevel = MemberAccessLevel.SeniorQA,
-						GroupTag = "DEMO",
-						LastLoginDate = new DateTime(),
-						EmailAddressStatus = EmailAddressStatus.Verified,
-						FacebookId = "4"
-					},
-					MemberWallet = new MemberWalletView() {
-						Cmid = 234789,
-						Credits = 10000,
-						Points = 10000,
-						CreditsExpiration = DateTime.Today,
-						PointsExpiration = DateTime.Today
-					},
-					MemberItems = new List<int>() {
-						3342386,
-						6684769,
-						6357046,
-						3407969,
-						3145825,
-						3539045,
-						3145782,
-						3735653,
-						6684773,
-						3276898,
-						3211320,
-						6553655,
-						6684728,
-						3407969,
-						6357090,
-						3473460,
-						3407922,
-						3276900,
-						6488113,
-						3407974,
-						3735649,
-						6422583,
-						3539000,
-						3145825,
-						3604530,
-						6684724,
-						6357048
-					}
-				},
-				UberstrikeMemberView = new UberstrikeMemberView() {
+			if (userData[steamId] != null) {
+				UberstrikeUserViewModel instance = new UberstrikeUserViewModel() {
+					CmuneMemberView = userData[steamId],
+					UberstrikeMemberView = new UberstrikeMemberView()
+				};
 
-				}
-			};
+				UberstrikeUserViewModelProxy.Serialize(outputStream, instance);
+			}
 
-			UberstrikeUserViewModelProxy.Serialize(outputStream, instance);
 
 			return outputStream.ToArray();
 		}
