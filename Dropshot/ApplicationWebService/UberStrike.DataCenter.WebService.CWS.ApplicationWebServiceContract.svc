@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Service="ApplicationWebService.ApplicationWebService" CodeBehind="ApplicationWebService.cs" %>
