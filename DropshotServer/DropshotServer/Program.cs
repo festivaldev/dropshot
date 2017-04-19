@@ -111,9 +111,9 @@ namespace DropshotServer {
 		}
 
 		public static string LoadEmbeddedJson(string dataPath) {
-			var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(dataPath);
-			return new StreamReader(stream).ReadToEnd();
-		}
+            var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(dataPath);
+            return new StreamReader(stream).ReadToEnd();
+        }
 
 		public static double GetProcessUptime() {
 			var timeSpan = DateTime.UtcNow - Process.GetCurrentProcess().StartTime.ToUniversalTime();
