@@ -1,5 +1,5 @@
 # Project Dropshot
-An incomplete UberStrike server emulator developed by @SniperGER and @vainamov
+An incomplete UberStrike server emulator developed by [@SniperGER](https://twitter.com/Sniper_GER) and [@vainamov](https://twitter.com/vainamov).
 
 ## Features
 - **Authentication**  
