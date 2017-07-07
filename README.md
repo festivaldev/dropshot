@@ -74,11 +74,11 @@ To show map icons, put the image files inside the `Images` folder inside `C:\ine
 
 ## Fix for localhost not showing up in inetmgr under Windows 7
 - Run mmc.exe (windows icon button + r) 
-- go to file, click on add/remove snap-ins
-- choose certificates, click on add, in next window select computer account, then click next and then finish, and on previous window press ok
-- double click on "certificates(local computer)", then double click on personal, then right click navigate to all tasks and click import
-- in next window press next, then browse for localhost.pfx (in window where you browse for it, in drop list in right bottom edge select "Personal Information Exchange (*pfx,*p12)" and then it should show up" select it and press open
-- press next, and then again next, in next window select "Place all certificates in the following store", and under certificate store browse for Personal, click next and then finish, and save everything.
+- Go to file, click on add/remove snap-ins
+- Choose certificates, click on add, in next window select computer account, click next and then finish, and on previous window press ok
+- Open "certificates (local computer)", double click on personal, then right click, navigate to all tasks and click import
+- In next window press next, browse for localhost.pfx (in window where you browse for it, in drop list in right bottom edge select "Personal Information Exchange (*pfx,*p12)", select and open it
+- Proceed further, select "Place all certificates in the following store", and under certificate store browse for Personal, click next and then finish, and save everything.
 
 ## Known issues
 - You cannot play with others (don't blame us for this, this takes a lot of time)
